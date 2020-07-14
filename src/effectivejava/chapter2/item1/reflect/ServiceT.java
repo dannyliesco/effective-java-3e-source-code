@@ -8,21 +8,4 @@ public class ServiceT <T> {
 
     }
 
-    public <T> void registerProvider(String name, T t) {
-        t.toString();
-    }
-
-    public SubWayInterface getService(String name) {
-
-        SubwayProviderInterface p = providers.get(name);
-
-        if (p == null) {
-            throw new IllegalArgumentException(
-                    "No provider registered with name:" + name);
-        }
-
-        return p.getService();
-
-    }
-
 }

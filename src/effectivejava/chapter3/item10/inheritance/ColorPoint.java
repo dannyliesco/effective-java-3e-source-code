@@ -12,14 +12,21 @@ public class ColorPoint extends Point {
         this.color = color;
     }
 
-    // Broken - violates symmetry!  (Page 41)
+    //Hogen - violates symmetry!  (Page 41)
     @Override public boolean equals(Object o) {
         if (!(o instanceof ColorPoint))
             return false;
         return super.equals(o) && ((ColorPoint) o).color == color;
     }
 
-//    // Broken - violates transitivity! (page 42)
+//    // Broken - violates symmetry!  (Page 41)
+//    @Override public boolean equals(Object o) {
+//        if (!(o instanceof ColorPoint))
+//            return false;
+//        return super.equals(o) && ((ColorPoint) o).color == color;
+//    }
+
+    // Broken - violates transitivity! (page 42)
 //    @Override public boolean equals(Object o) {
 //        if (!(o instanceof Point))
 //            return false;

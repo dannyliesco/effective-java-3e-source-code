@@ -4,10 +4,10 @@ package effectivejava.chapter2.item2.hierarchicalbuilder;
 public class Calzone extends Pizza {
     private final boolean sauceInside;
 
-    public static class Builder extends Pizza.Builder<Builder> {
+    public static class CalZoneBuilder extends Pizza.Builder<CalZoneBuilder> {
         private boolean sauceInside = false; // Default
 
-        public Builder sauceInside() {
+        public CalZoneBuilder sauceInside() {
             sauceInside = true;
             return this;
         }
@@ -16,10 +16,10 @@ public class Calzone extends Pizza {
             return new Calzone(this);
         }
 
-        @Override protected Builder self() { return this; }
+        @Override protected CalZoneBuilder self() { return this; }
     }
 
-    private Calzone(Builder builder) {
+    private Calzone(CalZoneBuilder builder) {
         super(builder);
         sauceInside = builder.sauceInside;
     }

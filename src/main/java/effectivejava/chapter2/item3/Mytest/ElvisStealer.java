@@ -8,9 +8,10 @@ public class ElvisStealer implements Serializable {
     static Elvis impersonator;
     private Elvis payload;
 
-    private Object readResolve() {
+    private Object readResolve( ) {
         // Save a reference to the "unresolved" Elvis instance
-        impersonator = payload;
+        impersonator = Elvis.INSTANCE;
+        payload = impersonator;
         // Return object of correct type for favoriteSongs field
         return new String[] { "A Fool Such as I" };
     }

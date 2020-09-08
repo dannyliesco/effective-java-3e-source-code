@@ -11,7 +11,7 @@ public class SerialSingleTen {
         // Initializes ElvisStealer.impersonator and returns
         // the real Elvis (which is Elvis.INSTANCE)
         serialized();
-        elvis = deserialized();
+        deserialized();
         Elvis impersonator = ElvisStealer.impersonator;
         elvis.printFavorites();
         impersonator.printFavorites();

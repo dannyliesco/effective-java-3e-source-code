@@ -1,6 +1,8 @@
 package effectivejava.chapter3.item14;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.ToIntFunction;
+
 import static java.util.Comparator.*;
 
 // Making PhoneNumber comparable (Pages 69-70)
@@ -69,6 +71,15 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
             comparingInt((PhoneNumber pn) -> pn.areaCode)
                     .thenComparingInt(pn -> pn.prefix)
                     .thenComparingInt(pn -> pn.lineNum);
+
+
+    private static final Comparator<PhoneNumber> COMPARATOR2 =
+            comparingInt(new ToIntFunction<>() {
+                @Override
+                public int applyAsInt(PhoneNumber value) {
+                    return value.areaCode;
+                }
+            });
 
     public int compareTo(PhoneNumber pn) {
         return COMPARATOR.compare(this, pn);
